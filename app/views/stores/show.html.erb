@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @store.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @store.description %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @store.photo %>
+</p>
+
+<p>
+  <strong>Cover photo:</strong>
+  <%= @store.cover_photo %>
+</p>
+
+<p>
+  <strong>Facebook link:</strong>
+  <%= @store.facebook_link %>
+</p>
+
+<p>
+  <strong>Instagram link:</strong>
+  <%= @store.instagram_link %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @store.user %>
+</p>
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %>
