@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
+  enum gender: [ :male, :female ]
+
   def self.find_for_facebook_oauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     # The User was found in our database
