@@ -35,7 +35,7 @@
   <%= @store.user %>
 </p>
 
-<%= render partial: "comments/commets", locals: {commentable: @store} %>
+<%= render partial: "comments/comments", locals: {commentable: @store} %>
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
