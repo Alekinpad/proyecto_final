@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :products
-  resources :stores
+  resources :products do 
+    resources :comments, module: :products
+  end
+  resources :stores do 
+    resources :comments, module: :stores
+  end
+
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  root to: "stores#index"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
