@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   resources :products do 
     resources :comments, module: :products
+    resources :likes, module: :products
   end
   resources :stores do 
     resources :comments, module: :stores
+    resources :likes, module: :stores
   end
 
   devise_for :users, controllers: {

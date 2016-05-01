@@ -1,0 +1,7 @@
+<%= button_to like_product_path(likeable), method: :get do %>
+	<% if likeable.liked_by? current_user %>
+		Unlike
+	<% else %>
+		Like
+	<% end %>
+<% end %>

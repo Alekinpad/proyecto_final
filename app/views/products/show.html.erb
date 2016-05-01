@@ -30,6 +30,10 @@
   <%= @product.store %>
 </p>
 
+
+<strong><%= @product.likes.count %> Likes</strong>
+<%= render partial: "likes/form", locals: {commentable: @product} %>
+
 <%= render partial: "comments/comments", locals: {commentable: @product} %>
 <%= render partial: "comments/form", locals: {commentable: @product} %>
 

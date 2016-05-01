@@ -35,6 +35,9 @@
   <%= @store.user %>
 </p>
 
+<strong><%= @store.likes.count %> Likes</strong>
+<%= render partial: "likes/form", locals: {commentable: @store} %>
+
 <%= render partial: "comments/comments", locals: {commentable: @store} %>
 <%= render partial: "comments/form", locals: {commentable: @store} %>
 
