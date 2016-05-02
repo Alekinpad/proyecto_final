@@ -1,4 +1,4 @@
-<%= form_for [@store, Like.new] do |f| %>
-	<%= f.check_box :paid %>
-	<%= f.submit %>
+<%= form_for [likeable, Like.new] do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.submit "Like" %>
 <% end %>

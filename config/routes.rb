@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   resources :products do 
     resources :comments, module: :products
     resources :likes, module: :products
-    user do
-      get 'delete_tag/:tag_id', to: "products#delete_tag", as: "delete_tag"
-    end
   end
   resources :stores do 
     resources :comments, module: :stores

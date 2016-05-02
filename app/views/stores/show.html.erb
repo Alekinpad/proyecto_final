@@ -36,7 +36,7 @@
 </p>
 
 <strong><%= @store.likes.count %> Likes</strong>
-<%= link_to 'like', store_likes_path(@store), method: "post" %>
+<%= render partial: "likes/form", locals: {likeable: @store} %>
 
 <%= render partial: "comments/comments", locals: {commentable: @store} %>
 <%= render partial: "comments/form", locals: {commentable: @store} %>
