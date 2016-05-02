@@ -10,7 +10,4 @@ class LikesController < ApplicationController
 
   private
 
-    # def like_params 
-    #   params.require(:like).permit()
-    # end
 end
