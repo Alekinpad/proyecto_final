@@ -1,4 +1,8 @@
 <%= form_for [likeable, Like.new] do |f| %>
     <%= f.hidden_field :user_id %>
-    <%= f.submit "Like" %>
+    <% if likeable.liked_by? current_user %>
+    	<%= f.submit "Unlike" %>
+    <% else %>
+    	<%= f.submit "Like" %>
+    <% end %>
 <% end %>

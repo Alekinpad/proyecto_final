@@ -4,3 +4,4 @@ class Like < ActiveRecord::Base
 
   validates :user_id, uniqueness: {scope: [:likeable_id, :likeable_type]}
 end
+

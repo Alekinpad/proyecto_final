@@ -2,12 +2,16 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @like = @likeable.likes.new
-    @like.user = current_user
-    @like.save
-    redirect_to @likeable, notice: "Tu like se ha guardado"
-  end
+    @like = @likeable.likes.build(user: current_user)
 
-  private
+    if @likeable.liked_by? current_user
+      @likeable.remove_like current_user
+      redirect_to @likeable, notice: "Tu like se ha guardado"
+    elsif @like.save
+      redirect_to @likeable, notice: "Tu like se ha guardado"
+    else  
+      redirect_to @likeable, notice: "Tu like se ha guardado"
+    end
+  end
 
 end
