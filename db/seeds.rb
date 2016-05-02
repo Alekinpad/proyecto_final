@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Store.destroy_all
 Product.destroy_all
+Store.destroy_all
 
 stores = []
 
