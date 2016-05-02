@@ -6,11 +6,11 @@ class LikesController < ApplicationController
 
     if @likeable.liked_by? current_user
       @likeable.remove_like current_user
-      redirect_to @likeable, notice: "Tu like se ha guardado"
+      redirect_to @likeable, notice: "Tu like se ha borrado"
     elsif @like.save
       redirect_to @likeable, notice: "Tu like se ha guardado"
     else  
-      redirect_to @likeable, notice: "Tu like se ha guardado"
+      redirect_to @likeable, notice: "Error"
     end
   end
 
