@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :comments, module: :products
     resources :likes, module: :products
   end
+
   resources :stores do 
     resources :comments, module: :stores
     resources :likes, module: :stores
