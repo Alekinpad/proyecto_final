@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :products do 
     resources :comments, module: :products
     resources :likes, module: :products
+    resources :tags
   end
 
   resources :stores do 

@@ -28,6 +28,12 @@
   <%= @product.store %>
 </p>
 
+<p>
+<% @product.tags.each do |t| %>
+  #<%= t.name %>
+<% end %>
+</p>
+
 
 <strong><%= @product.likes.count %> Likes</strong>
 <%= render partial: "likes/form", locals: {likeable: @product} %>
