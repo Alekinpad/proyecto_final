@@ -4,6 +4,8 @@ class Product < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
   has_many :user_likes, through: :likes, source: :user
+  has_many :product_whishlists
+  has_many :whishlists, through: :product_whishlist
 
   validates :name, presence: true
 

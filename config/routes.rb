@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :whishlists
   resources :products do 
     resources :comments, module: :products
     resources :likes, module: :products

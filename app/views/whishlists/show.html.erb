@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @whishlist.type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @whishlist.name %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @whishlist.icon %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @whishlist.user %>
+</p>
+
+<%= link_to 'Edit', edit_whishlist_path(@whishlist) %> |
+<%= link_to 'Back', whishlists_path %>
