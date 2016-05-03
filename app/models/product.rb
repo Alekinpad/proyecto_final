@@ -5,7 +5,11 @@ class Product < ActiveRecord::Base
   has_many :likes, as: :likeable, dependent: :destroy
   has_many :user_likes, through: :likes, source: :user
 
+  validates :name, presence: true
+
   acts_as_taggable
+
+  mount_uploader :photo, PhotoUploader
 
   def to_s
     self.name

@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -41,10 +45,6 @@ gem 'sucker_punch'
 gem 'omniauth'
 
 gem 'omniauth-facebook'
-
-gem 'carrierwave'
-
-gem 'mini_magick'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 

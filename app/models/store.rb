@@ -7,6 +7,10 @@ class Store < ActiveRecord::Base
   has_many :user_likes, through: :likes, source: :user
 
   validates :user_id, uniqueness: true
+  validates :name, presence: true
+
+  mount_uploader :photo, PhotoUploader
+  mount_uploader :cover_photo, CoverPhotoUploader
 
   def to_s
     self.name
