@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
   resources :whishlists
-  resources :products do 
-    resources :comments, module: :products
-    resources :likes, module: :products
-    resources :tags
-  end
+  
 
   resources :stores do 
     resources :comments, module: :stores
     resources :likes, module: :stores
+
+    resources :products do 
+      resources :comments, module: :products
+      resources :likes, module: :products
+      resources :tags
+    end
   end
 
   devise_for :users, controllers: {

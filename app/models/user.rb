@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   enum gender: [ :male, :female ]
-  enum role: [ :other, :guest ]
+  enum role: [ :other, :logged ]
 
   def self.find_for_facebook_oauth(auth)
     user = User.where(provider: auth.provider, uid: auth.uid).first
