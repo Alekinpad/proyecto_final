@@ -8,6 +8,7 @@
 
 Product.destroy_all
 Store.destroy_all
+User.destroy_all
 
 stores = []
 

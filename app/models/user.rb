@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  enum gender: [ :male, :female ]
   enum role: [ :other, :logged ]
 
   def self.find_for_facebook_oauth(auth)
@@ -24,7 +23,14 @@ class User < ActiveRecord::Base
     return user if user
 
     User.create(
-      name: auth.extra.raw_info.name, provider: auth.provider, uid: auth.uid, email: auth.info.email,
+      name: auth.info.name, 
+      provider: auth.provider, 
+      uid: auth.uid, 
+      email: auth.info.email,
+      avatar: auth.info.image,
+      age: auth.info.age,
+      gender: auth.extra.raw_info.gender,
+      birthday: auth.extra.raw_info.birthday,
       password: Devise.friendly_token[0,20])
   end
 end
