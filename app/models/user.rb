@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
       birthday: auth.extra.raw_info.birthday,
       password: Devise.friendly_token[0,20])
   end
+
+  def to_s
+    name
+  end
 end

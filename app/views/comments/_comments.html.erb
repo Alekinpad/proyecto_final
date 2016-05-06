@@ -2,7 +2,7 @@
   <strong>Comments:</strong>
   <ul>
   <% commentable.comments.each do |comment| %>
-  	<li><%= comment.content %></li>
+  	<li><%= comment.content %> - <%= comment.user %></li>
   <% end %>
   </ul>
 </p>

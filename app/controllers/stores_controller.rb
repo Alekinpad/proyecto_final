@@ -10,6 +10,8 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @products = @store.products
+    @product = "Hola"
   end
 
   # GET /stores/new
@@ -70,6 +72,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:name, :description, :photo, :photo_cache, :cover_photo, :cover_photo_cache, :facebook_link, :instagram_link, :user_id)
+      params.require(:store).permit(:name, :description, :photo, :photo_cache, :cover_photo, :cover_photo_cache, :facebook_link, :instagram_link, :user_id, :products)
     end
 end

@@ -29,8 +29,8 @@
 </p>
 
 <p>
-<% @product.tags.each do |t| %>
-  #<%= t.name %>
+<% @product.tags.each do |tag| %>
+  #<%= link_to tag.name, tagged_url(tag: tag.name) %>
 <% end %>
 </p>
 
