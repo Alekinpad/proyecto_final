@@ -11,7 +11,7 @@ class StoresController < ApplicationController
   # GET /stores/1.json
   def show
     @products = @store.products
-    @product = "Hola"
+    @product = Product.new
   end
 
   # GET /stores/new
