@@ -41,5 +41,5 @@
 <%= render partial: "comments/comments", locals: {commentable: @product} %>
 <%= render partial: "comments/form", locals: {commentable: @product} %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_store_product_path(@store, @product) %> |
+<%= link_to 'Back', store_products_path %>
