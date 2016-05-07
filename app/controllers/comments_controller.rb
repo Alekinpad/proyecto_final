@@ -8,6 +8,12 @@ class CommentsController < ApplicationController
     redirect_to @commentable, notice: "Comentario enviado"
   end
 
+  def destroy 
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to @commentable
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:content)
