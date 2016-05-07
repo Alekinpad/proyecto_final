@@ -3,7 +3,7 @@
   <ul>
   <% commentable.comments.each do |comment| %>
   	<li><%= comment.content %> - <%= comment.user %></li>
-  	<%= link_to 'X', [@store, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+  	<%= link_to 'X', [commentable, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   </ul>
 </p>
