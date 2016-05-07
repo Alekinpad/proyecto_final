@@ -6,11 +6,23 @@ class LikesController < ApplicationController
 
     if @likeable.liked_by? current_user
       @likeable.remove_like current_user
-      redirect_to @likeable, notice: "Tu like se ha borrado"
+      if @likeable.is_a?(Product) 
+        redirect_to [@store, @likeable], notice: "Tu like se ha borrado"
+      else
+        redirect_to @likeable, notice: "Tu like se ha borrado"
+      end
     elsif @like.save
-      redirect_to @likeable, notice: "Tu like se ha guardado"
+      if @likeable.is_a?(Product) 
+        redirect_to [@store, @likeable], notice: "Tu like se ha guardado"
+      else
+        redirect_to @likeable, notice: "Tu like se ha guardado"
+      end
     else  
-      redirect_to @likeable, notice: "Error"
+      if @likeable.is_a?(Product) 
+        redirect_to [@store, @likeable], notice: "Error"
+      else
+        redirect_to @likeable, notice: "Error"
+      end
     end
   end
 

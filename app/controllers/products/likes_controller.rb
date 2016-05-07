@@ -4,6 +4,7 @@ class Products::LikesController < LikesController
   private 
 
     def set_likeable
+      @store = Store.find(params[:store_id])
       @likeable = Product.find(params[:product_id])
     end
 end
