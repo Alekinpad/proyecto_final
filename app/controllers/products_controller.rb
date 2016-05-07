@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @store = Store.find(params[:store_id])
   end
 
   # POST /products

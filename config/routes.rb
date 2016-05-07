@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   
 
   resources :stores do 
-    resources :comments, module: :stores
-    resources :likes, module: :stores
+    resources :comments, module: :stores, only: [:create]
+    resources :likes, module: :stores, only: [:create]
 
     resources :products do 
-      resources :comments, module: :products
-      resources :likes, module: :products
+      resources :comments, module: :products, only: [:create]
+      resources :likes, module: :products, only: [:create]
       resources :tags
     end
   end
