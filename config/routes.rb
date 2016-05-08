@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :whishlists
-  
 
   resources :stores do 
     resources :comments, module: :stores, only: [:create, :destroy]
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  resources :users
 
   root to: "stores#index"
 
