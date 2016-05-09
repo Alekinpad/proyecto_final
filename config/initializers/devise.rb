@@ -241,7 +241,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'],
     scope: 'public_profile, email, user_birthday',
-    info_fields: 'id, email, first_name, last_name, gender, picture, birthday, image_size: "large"',
+    info_fields: 'id, email, first_name, last_name, gender, picture, birthday',
     secure_image_url: true,
     image_size: { width: 600, height: 600 }
   
