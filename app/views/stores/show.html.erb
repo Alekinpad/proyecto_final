@@ -30,7 +30,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @store.user %>
+  <%= link_to @store.user, @store.user %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @store.user.phone_number %>
 </p>
 
 <strong><%= @store.likes.count %> Likes</strong>
