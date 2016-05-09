@@ -28,6 +28,7 @@ end
 5.times do |w|
   u = users[w]
   Whishlist.create(
+    category: 0,
     name: "Love It",
     icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png",
     user: u

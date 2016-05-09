@@ -3,5 +3,5 @@ class Whishlist < ActiveRecord::Base
   has_many :product_whishlists
   has_many :products, through: :product_whishlist
 
-  enum type: [ :love_it, :hate_it, :have_it, :other ]
+  enum category: [ :love_it, :hate_it, :have_it, :other ]
 end
