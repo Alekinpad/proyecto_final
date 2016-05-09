@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  resources :users
+  resources :users do
+    resources :whishlists
+  end
 
   root to: "stores#index"
 

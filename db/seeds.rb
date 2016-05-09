@@ -8,6 +8,7 @@
 
 Product.destroy_all
 Store.destroy_all
+Whishlist.destroy_all
 User.destroy_all
 
 users = []
@@ -21,6 +22,15 @@ stores = []
     password: "password",
     role: 1,
     gender: "female"
+  )
+end
+
+5.times do |w|
+  u = users[w]
+  Whishlist.create(
+    name: "Love It",
+    icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png",
+    user: u
   )
 end
 
