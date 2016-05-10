@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510000125) do
+ActiveRecord::Schema.define(version: 20160510214253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "icon"
-  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -43,16 +36,6 @@ ActiveRecord::Schema.define(version: 20160510000125) do
   end
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
-
-  create_table "product_wishlists", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "wishlist_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "product_wishlists", ["product_id"], name: "index_product_wishlists_on_product_id", using: :btree
-  add_index "product_wishlists", ["wishlist_id"], name: "index_product_wishlists_on_wishlist_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -130,21 +113,12 @@ ActiveRecord::Schema.define(version: 20160510000125) do
 
   create_table "wishlists", force: :cascade do |t|
     t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "wishlists", ["category_id"], name: "index_wishlists_on_category_id", using: :btree
-  add_index "wishlists", ["user_id"], name: "index_wishlists_on_user_id", using: :btree
 
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
-  add_foreign_key "product_wishlists", "products"
-  add_foreign_key "product_wishlists", "wishlists"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users"
-  add_foreign_key "wishlists", "categories"
-  add_foreign_key "wishlists", "users"
 end
