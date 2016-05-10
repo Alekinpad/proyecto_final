@@ -1,6 +1,6 @@
-class CreateWhishlists < ActiveRecord::Migration
+class CreateWishlists < ActiveRecord::Migration
   def change
-    create_table :whishlists do |t|
+    create_table :wishlists do |t|
       t.integer :type
       t.string :name
       t.string :icon

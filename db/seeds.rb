@@ -8,8 +8,15 @@
 
 Product.destroy_all
 Store.destroy_all
-Whishlist.destroy_all
+Wishlist.destroy_all
 User.destroy_all
+Category.destroy_all
+
+Category.create(name: 'love it', icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png")
+Category.create(name: 'hate it', icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png")
+Category.create(name: 'have it', icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png")
+
+
 
 users = []
 stores = []
@@ -25,15 +32,15 @@ stores = []
   )
 end
 
-5.times do |w|
-  u = users[w]
-  Whishlist.create(
-    category: 0,
-    name: "Love It",
-    icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png",
-    user: u
-  )
-end
+# 5.times do |w|
+#   u = users[w]
+#   Wishlist.create(
+#     category: 0,
+#     name: "Love It",
+#     icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png",
+#     user: u
+#   )
+# end
 
 5.times do |s|
   u = users[s]
@@ -53,5 +60,3 @@ end
     store: stores.sample
   )
 end
-
-

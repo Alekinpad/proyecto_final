@@ -1,8 +1,8 @@
-class CreateProductWhishlists < ActiveRecord::Migration
+class CreateProductWishlists < ActiveRecord::Migration
   def change
-    create_table :product_whishlists do |t|
+    create_table :product_wishlists do |t|
       t.references :product, index: true, foreign_key: true
-      t.references :whishlist, index: true, foreign_key: true
+      t.references :wishlist, index: true, foreign_key: true
 
       t.timestamps null: false
     end

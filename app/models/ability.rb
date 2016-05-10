@@ -6,7 +6,7 @@ class Ability
 
     # if user.logged?
     #     can :read, :all
-    #     can :create, [Like, Comment, Store, Whishlist]
+    #     can :create, [Like, Comment, Store, Wishlist]
     #     can :create, [Product, Tag], store: { user_id: user.id }
     # end
     # Define abilities for the passed in user here. For example:

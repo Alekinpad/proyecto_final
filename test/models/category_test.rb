@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProductWishlistTest < ActiveSupport::TestCase
+class CategoryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

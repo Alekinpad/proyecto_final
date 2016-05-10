@@ -1,5 +1,5 @@
-class RemoveTypeFromWhishlist < ActiveRecord::Migration
+class RemoveTypeFromWishlist < ActiveRecord::Migration
   def change
-    remove_column :whishlists, :type, :integer
+    remove_column :wishlists, :type, :integer
   end
 end

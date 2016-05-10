@@ -72,10 +72,10 @@
 <ellipse fill="none" stroke="black" cx="-12" cy="4" rx="141.506" ry="18"/>
 <text text-anchor="middle" x="-12" y="8.2" font-family="Times,serif" font-size="14.00">Users::OmniauthCallbacksController</text>
 </g>
-<!-- WhishlistsController -->
-<g id="node13" class="node"><title>WhishlistsController</title>
+<!-- WishlistsController -->
+<g id="node13" class="node"><title>WishlistsController</title>
 <ellipse fill="none" stroke="black" cx="-59" cy="-95" rx="83.5995" ry="18"/>
-<text text-anchor="middle" x="-59" y="-90.8" font-family="Times,serif" font-size="14.00">WhishlistsController</text>
+<text text-anchor="middle" x="-59" y="-90.8" font-family="Times,serif" font-size="14.00">WishlistsController</text>
 </g>
 </g>
 </svg>

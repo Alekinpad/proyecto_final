@@ -44,13 +44,13 @@
 <ellipse fill="none" stroke="#4497b6" cx="306.586" cy="-260.732" rx="4.00002" ry="4.00002"/>
 <polygon fill="#4497b6" stroke="#4497b6" points="156.785,-42.7274 154.694,-31.9628 153.901,-38.6429 151.017,-34.5584 151.017,-34.5584 151.017,-34.5584 153.901,-38.6429 147.341,-37.154 156.785,-42.7274 156.785,-42.7274"/>
 </g>
-<!-- ProductWhishlist -->
-<g id="node5" class="node"><title>ProductWhishlist</title>
+<!-- ProductWishlist -->
+<g id="node5" class="node"><title>ProductWishlist</title>
 <ellipse fill="none" stroke="black" cx="322.988" cy="-18" rx="71.5376" ry="18"/>
-<text text-anchor="middle" x="322.988" y="-13.8" font-family="Times,serif" font-size="14.00">ProductWhishlist</text>
+<text text-anchor="middle" x="322.988" y="-13.8" font-family="Times,serif" font-size="14.00">ProductWishlist</text>
 </g>
-<!-- Product&#45;&gt;ProductWhishlist -->
-<g id="edge4" class="edge"><title>Product&#45;&gt;ProductWhishlist</title>
+<!-- Product&#45;&gt;ProductWishlist -->
+<g id="edge4" class="edge"><title>Product&#45;&gt;ProductWishlist</title>
 <path fill="none" stroke="#963c2b" d="M320.288,-255.17C320.683,-221.706 321.397,-160.931 321.988,-109 322.228,-87.9393 322.493,-64.1062 322.689,-46.2588"/>
 <ellipse fill="none" stroke="#963c2b" cx="320.238" cy="-259.461" rx="4" ry="4"/>
 <polygon fill="#963c2b" stroke="#963c2b" points="322.689,-46.253 327.299,-36.3032 322.744,-41.2533 322.8,-36.2536 322.8,-36.2536 322.8,-36.2536 322.744,-41.2533 318.3,-36.2041 322.689,-46.253 322.689,-46.253"/>
@@ -67,13 +67,13 @@
 <polygon fill="#2f58b1" stroke="#2f58b1" points="130.159,-204.867 132.859,-194.238 129.293,-199.942 128.427,-195.018 128.427,-195.018 128.427,-195.018 129.293,-199.942 123.995,-195.798 130.159,-204.867 130.159,-204.867"/>
 <text text-anchor="middle" x="171.371" y="-215.8" font-family="Times,serif" font-size="14.00">user_likes</text>
 </g>
-<!-- Whishlist -->
-<g id="node8" class="node"><title>Whishlist</title>
+<!-- Wishlist -->
+<g id="node8" class="node"><title>Wishlist</title>
 <ellipse fill="none" stroke="black" cx="268.988" cy="-91" rx="44.0164" ry="18"/>
-<text text-anchor="middle" x="268.988" y="-86.8" font-family="Times,serif" font-size="14.00">Whishlist</text>
+<text text-anchor="middle" x="268.988" y="-86.8" font-family="Times,serif" font-size="14.00">Wishlist</text>
 </g>
-<!-- Product&#45;&gt;Whishlist -->
-<g id="edge5" class="edge"><title>Product&#45;&gt;Whishlist</title>
+<!-- Product&#45;&gt;Wishlist -->
+<g id="edge5" class="edge"><title>Product&#45;&gt;Wishlist</title>
 <path fill="none" stroke="#0f9d8e" d="M312.747,-253.737C303.062,-217.938 285.986,-154.823 276.276,-118.937"/>
 <polygon fill="#0f9d8e" stroke="#0f9d8e" points="312.761,-253.786 311.029,-264.615 314.067,-258.613 315.373,-263.439 315.373,-263.439 315.373,-263.439 314.067,-258.613 319.716,-262.264 312.761,-253.786 312.761,-253.786"/>
 <polygon fill="#0f9d8e" stroke="#0f9d8e" points="276.242,-118.811 277.974,-107.983 274.936,-113.984 273.631,-109.158 273.631,-109.158 273.631,-109.158 274.936,-113.984 269.287,-110.333 276.242,-118.811 276.242,-118.811"/>
@@ -164,14 +164,14 @@
 <ellipse fill="none" stroke="#98ac30" cx="152.414" cy="-163.471" rx="4.00002" ry="4.00002"/>
 <ellipse fill="#98ac30" stroke="#98ac30" cx="161.488" cy="-107.801" rx="4.00002" ry="4.00002"/>
 </g>
-<!-- User&#45;&gt;Whishlist -->
-<g id="edge17" class="edge"><title>User&#45;&gt;Whishlist</title>
+<!-- User&#45;&gt;Wishlist -->
+<g id="edge17" class="edge"><title>User&#45;&gt;Wishlist</title>
 <path fill="none" stroke="#d943b7" d="M154.922,-160.767C165.572,-154.686 177.896,-147.578 188.988,-141 204.882,-131.575 222.401,-120.88 236.983,-111.892"/>
 <ellipse fill="none" stroke="#d943b7" cx="151.327" cy="-162.814" rx="4.00002" ry="4.00002"/>
 <polygon fill="#d943b7" stroke="#d943b7" points="237.134,-111.799 248.007,-110.371 241.388,-109.171 245.642,-106.543 245.642,-106.543 245.642,-106.543 241.388,-109.171 243.277,-102.714 237.134,-111.799 237.134,-111.799"/>
 </g>
-<!-- Whishlist&#45;&gt;ProductWhishlist -->
-<g id="edge18" class="edge"><title>Whishlist&#45;&gt;ProductWhishlist</title>
+<!-- Wishlist&#45;&gt;ProductWishlist -->
+<g id="edge18" class="edge"><title>Wishlist&#45;&gt;ProductWishlist</title>
 <path fill="none" stroke="#e7963a" d="M286.386,-67.1256C291.941,-59.8221 298.119,-51.6989 303.794,-44.2374"/>
 <ellipse fill="none" stroke="#e7963a" cx="283.934" cy="-70.3489" rx="4.00002" ry="4.00002"/>
 <polygon fill="#e7963a" stroke="#e7963a" points="304.103,-43.8305 313.739,-38.5952 307.13,-39.8508 310.157,-35.871 310.157,-35.871 310.157,-35.871 307.13,-39.8508 306.575,-33.1468 304.103,-43.8305 304.103,-43.8305"/>

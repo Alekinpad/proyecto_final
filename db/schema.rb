@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509220024) do
+ActiveRecord::Schema.define(version: 20160510000125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "icon"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -37,15 +44,15 @@ ActiveRecord::Schema.define(version: 20160509220024) do
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
-  create_table "product_whishlists", force: :cascade do |t|
+  create_table "product_wishlists", force: :cascade do |t|
     t.integer  "product_id"
-    t.integer  "whishlist_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "wishlist_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "product_whishlists", ["product_id"], name: "index_product_whishlists_on_product_id", using: :btree
-  add_index "product_whishlists", ["whishlist_id"], name: "index_product_whishlists_on_whishlist_id", using: :btree
+  add_index "product_wishlists", ["product_id"], name: "index_product_wishlists_on_product_id", using: :btree
+  add_index "product_wishlists", ["wishlist_id"], name: "index_product_wishlists_on_wishlist_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -121,22 +128,23 @@ ActiveRecord::Schema.define(version: 20160509220024) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "whishlists", force: :cascade do |t|
+  create_table "wishlists", force: :cascade do |t|
     t.string   "name"
-    t.string   "icon"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "category"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
 
-  add_index "whishlists", ["user_id"], name: "index_whishlists_on_user_id", using: :btree
+  add_index "wishlists", ["category_id"], name: "index_wishlists_on_category_id", using: :btree
+  add_index "wishlists", ["user_id"], name: "index_wishlists_on_user_id", using: :btree
 
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
-  add_foreign_key "product_whishlists", "products"
-  add_foreign_key "product_whishlists", "whishlists"
+  add_foreign_key "product_wishlists", "products"
+  add_foreign_key "product_wishlists", "wishlists"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users"
-  add_foreign_key "whishlists", "users"
+  add_foreign_key "wishlists", "categories"
+  add_foreign_key "wishlists", "users"
 end

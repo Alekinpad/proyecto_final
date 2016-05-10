@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   has_one :store
   has_many :likes
   has_many :comments
-  has_many :whishlists
+  has_many :wishlists
+
+  after_create :create_wishlists
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -37,4 +39,11 @@ class User < ActiveRecord::Base
   def to_s
     name
   end
+
+  private
+    def create_wishlists
+      Category.all.each do |category|
+        self.wishlists.create(category: category, name: category.name)
+      end
+    end
 end

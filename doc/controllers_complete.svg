@@ -144,10 +144,10 @@
 <polyline fill="none" stroke="black" points="159.796,-183 384.204,-183 "/>
 <text text-anchor="start" x="167.796" y="-167.8" font-family="Times,serif" font-size="14.00">_layout</text>
 </g>
-<!-- WhishlistsController -->
-<g id="node13" class="node"><title>WhishlistsController</title>
+<!-- WishlistsController -->
+<g id="node13" class="node"><title>WishlistsController</title>
 <path fill="none" stroke="black" d="M-68.3311,111C-68.3311,111 40.3311,111 40.3311,111 46.3311,111 52.3311,105 52.3311,99 52.3311,99 52.3311,-79 52.3311,-79 52.3311,-85 46.3311,-91 40.3311,-91 40.3311,-91 -68.3311,-91 -68.3311,-91 -74.3311,-91 -80.3311,-85 -80.3311,-79 -80.3311,-79 -80.3311,99 -80.3311,99 -80.3311,105 -74.3311,111 -68.3311,111"/>
-<text text-anchor="middle" x="-14" y="-75.8" font-family="Times,serif" font-size="14.00">WhishlistsController</text>
+<text text-anchor="middle" x="-14" y="-75.8" font-family="Times,serif" font-size="14.00">WishlistsController</text>
 <polyline fill="none" stroke="black" points="-80.3311,-69 52.3311,-69 "/>
 <text text-anchor="start" x="-72.3311" y="-53.8" font-family="Times,serif" font-size="14.00">index</text>
 <text text-anchor="start" x="-72.3311" y="-39.8" font-family="Times,serif" font-size="14.00">destroy</text>
@@ -159,8 +159,8 @@
 <polyline fill="none" stroke="black" points="-80.3311,37 52.3311,37 "/>
 <polyline fill="none" stroke="black" points="-80.3311,61 52.3311,61 "/>
 <text text-anchor="start" x="-72.3311" y="76.2" font-family="Times,serif" font-size="14.00">_layout</text>
-<text text-anchor="start" x="-72.3311" y="90.2" font-family="Times,serif" font-size="14.00">set_whishlist</text>
-<text text-anchor="start" x="-72.3311" y="104.2" font-family="Times,serif" font-size="14.00">whishlist_params</text>
+<text text-anchor="start" x="-72.3311" y="90.2" font-family="Times,serif" font-size="14.00">set_wishlist</text>
+<text text-anchor="start" x="-72.3311" y="104.2" font-family="Times,serif" font-size="14.00">wishlist_params</text>
 </g>
 </g>
 </svg>

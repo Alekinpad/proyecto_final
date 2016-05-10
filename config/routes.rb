@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :whishlists
+  resources :wishlists
 
   resources :stores do 
     resources :comments, module: :stores, only: [:create, :destroy]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :whishlists
+    resources :wishlists
   end
 
   root to: "stores#index"
