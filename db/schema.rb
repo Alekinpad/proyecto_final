@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510214253) do
+ActiveRecord::Schema.define(version: 20160510233540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160510214253) do
   end
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
+  create_table "product_wishlists", force: :cascade do |t|
+    t.integer  "user_wishlist_id"
+    t.integer  "product_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "product_wishlists", ["product_id"], name: "index_product_wishlists_on_product_id", using: :btree
+  add_index "product_wishlists", ["user_wishlist_id"], name: "index_product_wishlists_on_user_wishlist_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -84,6 +94,16 @@ ActiveRecord::Schema.define(version: 20160510214253) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
+  create_table "user_wishlists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "wishlist_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_wishlists", ["user_id"], name: "index_user_wishlists_on_user_id", using: :btree
+  add_index "user_wishlists", ["wishlist_id"], name: "index_user_wishlists_on_wishlist_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -115,10 +135,15 @@ ActiveRecord::Schema.define(version: 20160510214253) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "icon"
   end
 
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
+  add_foreign_key "product_wishlists", "products"
+  add_foreign_key "product_wishlists", "user_wishlists"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users"
+  add_foreign_key "user_wishlists", "users"
+  add_foreign_key "user_wishlists", "wishlists"
 end

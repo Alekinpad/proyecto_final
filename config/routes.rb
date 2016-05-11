@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :wishlists
-
   resources :stores do 
     resources :comments, module: :stores, only: [:create, :destroy]
     resources :likes, module: :stores, only: [:create]
