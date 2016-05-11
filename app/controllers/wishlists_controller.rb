@@ -1,34 +1,26 @@
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
 
-  # GET /wishlists
-  # GET /wishlists.json
-  def index
-    @wishlists = Wishlist.all
-  end
-
   # GET /wishlists/1
   # GET /wishlists/1.json
   def show
-  end
-
-  # GET /wishlists/new
-  def new
-    @wishlist = Wishlist.new
+    @user = User.find(params[:user_id])
   end
 
   # GET /wishlists/1/edit
   def edit
+    @user = User.find(params[:user_id])
   end
 
   # POST /wishlists
   # POST /wishlists.json
   def create
+    @user = User.find(params[:user_id])
     @wishlist = Wishlist.new(wishlist_params)
 
     respond_to do |format|
       if @wishlist.save
-        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully created.' }
+        format.html { redirect_to @user, notice: 'Wishlist was successfully created.' }
         format.json { render :show, status: :created, location: @wishlist }
       else
         format.html { render :new }
@@ -54,9 +46,10 @@ class WishlistsController < ApplicationController
   # DELETE /wishlists/1
   # DELETE /wishlists/1.json
   def destroy
+    @user = User.find(params[:user_id])
     @wishlist.destroy
     respond_to do |format|
-      format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.' }
+      format.html { redirect_to @user, notice: 'Wishlist was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +62,6 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:type, :name, :icon, :user_id)
+      params.require(:wishlist).permit(:name, :icon)
     end
 end

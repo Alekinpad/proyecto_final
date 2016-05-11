@@ -8,13 +8,13 @@
 
 <p>
   <strong>Icon:</strong>
-  <%= image_tag @wishlist.category.icon %>
+  <%= image_tag @wishlist.icon %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @wishlist.user %>
+  <%= @user %>
 </p>
 
-<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
-<%= link_to 'Back', wishlists_path %>
+<%= link_to 'Edit', edit_user_wishlist_path(@user, @wishlist) %> |
+<%= link_to 'Back', @user %>

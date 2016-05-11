@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
-  has_one :store
-  has_many :likes
-  has_many :comments
-  has_many :user_wishlists
-  has_many :wishlists, through: :user_wishlists
+  has_one :store, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :user_wishlists, dependent: :destroy
+  has_many :wishlists, through: :user_wishlists, dependent: :destroy
 
+  after_create :create_wishlists
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -41,5 +42,22 @@ class User < ActiveRecord::Base
   end
 
   private
+
+    def create_wishlists
+      self.wishlists.create(
+        name: "Love It",
+        icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
+        )
+
+      self.wishlists.create(
+        name: "Hate It",
+        icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
+        )
+
+      self.wishlists.create(
+        name: "Have It",
+        icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
+        )
+    end
 
 end
