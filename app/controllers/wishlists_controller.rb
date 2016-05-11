@@ -16,10 +16,11 @@ class WishlistsController < ApplicationController
   # POST /wishlists.json
   def create
     @user = User.find(params[:user_id])
-    @wishlist = Wishlist.new(wishlist_params)
+
+    @user.wishlists.build(wishlist_params)
 
     respond_to do |format|
-      if @wishlist.save
+      if @user.save
         format.html { redirect_to @user, notice: 'Wishlist was successfully created.' }
         format.json { render :show, status: :created, location: @wishlist }
       else
@@ -32,9 +33,10 @@ class WishlistsController < ApplicationController
   # PATCH/PUT /wishlists/1
   # PATCH/PUT /wishlists/1.json
   def update
+    @user = User.find(params[:user_id])
     respond_to do |format|
       if @wishlist.update(wishlist_params)
-        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Wishlist was successfully updated.' }
         format.json { render :show, status: :ok, location: @wishlist }
       else
         format.html { render :edit }
