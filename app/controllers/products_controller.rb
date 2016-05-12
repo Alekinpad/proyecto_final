@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @store = Store.find(params[:store_id])
+    @user = current_user
+    @wishlists = @user.wishlists
   end
 
   # GET /products/1/edit

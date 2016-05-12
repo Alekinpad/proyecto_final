@@ -7,6 +7,12 @@ class WishlistsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def add_to_wishlist
+    @product = Product.find(params[:product_id])
+    # wishlist.add_product(params[:product_id])
+    redirect_to @product
+  end
+
   # GET /wishlists/1/edit
   def edit
     @user = User.find(params[:user_id])

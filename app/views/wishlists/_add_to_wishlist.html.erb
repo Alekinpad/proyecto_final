@@ -1,0 +1,6 @@
+<ul>
+	<% @wishlists.each do |wishlist| %>
+		<li><%= wishlist.name %></li>
+		<%#= button_to "Add to " wishlist.name, add_to_wishlist_path(product_id: product), method: :post %>
+	<% end %>
+</ul>
