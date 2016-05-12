@@ -16,5 +16,9 @@
   <%= @user %>
 </p>
 
+<%= render partial: "wishlists/product" %>
+
+
+
 <%= link_to 'Edit', edit_user_wishlist_path(@user, @wishlist) %> |
 <%= link_to 'Back', @user %>

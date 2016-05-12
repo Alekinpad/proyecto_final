@@ -2,8 +2,12 @@ class User < ActiveRecord::Base
   has_one :store, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  
   has_many :user_wishlists, dependent: :destroy
+  
   has_many :wishlists, through: :user_wishlists, dependent: :destroy
+  
+  has_many :products, through: :user_wishlists
 
   after_create :create_wishlists
 

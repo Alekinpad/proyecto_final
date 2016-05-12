@@ -5,12 +5,15 @@ class WishlistsController < ApplicationController
   # GET /wishlists/1.json
   def show
     @user = User.find(params[:user_id])
+    @wishlist = Wishlist.find(params[:id])
+    @products = @wishlist.products
   end
 
   def add_to_wishlist
     @product = Product.find(params[:product_id])
-    # wishlist.add_product(params[:product_id])
-    redirect_to @product
+    @user_wishlist = UserWishlist.where(wishlist_id: params[:wishlist_id], user_id: current_user.id).first
+    @user_wishlist.product_wishlists.create!(product: @product)
+    redirect_to :back, notice: "El producto #{@product.name} se ha añadido a tu wishlist #{@user_wishlist.wishlist.name}"
   end
 
   # GET /wishlists/1/edit
