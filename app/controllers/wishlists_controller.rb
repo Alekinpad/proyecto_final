@@ -12,8 +12,12 @@ class WishlistsController < ApplicationController
   def add_to_wishlist
     @product = Product.find(params[:product_id])
     @user_wishlist = UserWishlist.where(wishlist_id: params[:wishlist_id], user_id: current_user.id).first
-    @user_wishlist.product_wishlists.create!(product: @product)
-    redirect_to :back, notice: "El producto #{@product.name} se ha añadido a tu wishlist #{@user_wishlist.wishlist.name}"
+    @user_wishlist.product_wishlists.build(product: @product)
+    if @user_wishlist.save
+      redirect_to :back, notice: "El producto #{@product.name} se ha añadido a tu wishlist #{@user_wishlist.wishlist.name}"
+    else
+      redirect_to :back, notice: "El producto ya está en esa wishlist"
+    end
   end
 
   # GET /wishlists/1/edit

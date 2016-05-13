@@ -4,5 +4,5 @@ class UserWishlist < ActiveRecord::Base
   has_many :product_wishlists
   has_many :products, through: :product_wishlists
 
-  #validates :user_id, :wishlist, uniqueness: true
+  validates :user_id, uniqueness: { scope: :wishlist }
 end
