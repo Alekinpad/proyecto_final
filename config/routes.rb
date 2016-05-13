@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :wishlists do
-      post '/remove_from_wishlist/:product_id' => 'wishlists#remove_from_wishlist', as: 'remove_from_wishlist'
+      #post '/remove_from_wishlist/:product_wishlists_id' => 'wishlists#remove_from_wishlist', as: 'remove_from_wishlist'
     end
   end
 

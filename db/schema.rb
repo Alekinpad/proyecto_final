@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513005400) do
+ActiveRecord::Schema.define(version: 20160513225450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,25 @@ ActiveRecord::Schema.define(version: 20160513005400) do
   end
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
+  create_table "metro_stores", force: :cascade do |t|
+    t.integer  "metro_id"
+    t.integer  "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "metro_stores", ["metro_id"], name: "index_metro_stores_on_metro_id", using: :btree
+  add_index "metro_stores", ["store_id"], name: "index_metro_stores_on_store_id", using: :btree
+
+  create_table "metros", force: :cascade do |t|
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "line"
+  end
 
   create_table "product_wishlists", force: :cascade do |t|
     t.integer  "user_wishlist_id"
@@ -140,6 +159,8 @@ ActiveRecord::Schema.define(version: 20160513005400) do
 
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
+  add_foreign_key "metro_stores", "metros"
+  add_foreign_key "metro_stores", "stores"
   add_foreign_key "product_wishlists", "products"
   add_foreign_key "product_wishlists", "user_wishlists"
   add_foreign_key "products", "stores"
