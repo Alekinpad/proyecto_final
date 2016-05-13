@@ -17,7 +17,6 @@ stores = []
 5.times do |u|
   users << User.create!(
     name: Faker::Name.name,
-    phone_number: Faker::PhoneNumber.cell_phone,
     email: Faker::Internet.email,
     password: "password",
     role: 1,
@@ -30,6 +29,7 @@ end
   stores << Store.create!(
     name: Faker::Company.name,
     description: Faker::Lorem.sentence(5),
+    phone_number: Faker::PhoneNumber.cell_phone,
     user: u
   )
 end

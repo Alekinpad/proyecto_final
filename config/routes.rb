@@ -16,11 +16,13 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :wishlists
+    resources :wishlists do
+      post '/remove_from_wishlist/:product_id' => 'wishlists#remove_from_wishlist', as: 'remove_from_wishlist'
+    end
   end
 
   post '/add_to_wishlist/:wishlist_id/:product_id' => 'wishlists#add_to_wishlist', as: 'add_to_wishlist'
-
+ 
   root to: "stores#index"
 
 

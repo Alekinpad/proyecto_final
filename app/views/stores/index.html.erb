@@ -1,36 +1,6 @@
 <h1>Listing Stores</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th>Cover photo</th>
-      <th>Facebook link</th>
-      <th>Instagram link</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stores.each do |store| %>
-      <tr>
-        <td><%= store.name %></td>
-        <td><%= store.description %></td>
-        <td><%= store.photo %></td>
-        <td><%= store.cover_photo %></td>
-        <td><%= store.facebook_link %></td>
-        <td><%= store.instagram_link %></td>
-        <td><%= link_to store.user, store.user %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: "stores/store" %>
 
 <br>
 

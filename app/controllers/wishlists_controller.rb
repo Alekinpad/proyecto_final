@@ -3,10 +3,11 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists/1
   # GET /wishlists/1.json
+
   def show
     @user = User.find(params[:user_id])
     @wishlist = Wishlist.find(params[:id])
-    @products = @wishlist.products
+    @products = @wishlist.products    
   end
 
   def add_to_wishlist
@@ -16,8 +17,13 @@ class WishlistsController < ApplicationController
     if @user_wishlist.save
       redirect_to :back, notice: "El producto #{@product.name} se ha añadido a tu wishlist #{@user_wishlist.wishlist.name}"
     else
-      redirect_to :back, notice: "El producto ya está en esa wishlist"
+      redirect_to :back, notice: "El producto #{@product.name} ya está en tu wishlist #{@user_wishlist.wishlist.name}"
     end
+  end
+
+  def remove_from_wishlist
+    # @product_wishlist = ProductWishlist.find(params[:product_wishlists_id])
+    # @product_wishlist.destroy
   end
 
   # GET /wishlists/1/edit
