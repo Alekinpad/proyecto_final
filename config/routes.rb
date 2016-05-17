@@ -16,12 +16,12 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :wishlists do
-      #post '/remove_from_wishlist/:product_wishlists_id' => 'wishlists#remove_from_wishlist', as: 'remove_from_wishlist'
-    end
+    resources :user_wishlists
   end
 
-  post '/add_to_wishlist/:wishlist_id/:product_id' => 'wishlists#add_to_wishlist', as: 'add_to_wishlist'
+  delete '/remove_from_user_wishlist/:user_wishlist_id/:product_id', to: 'user_wishlists#remove_from_user_wishlist', as: 'remove_from_user_wishlist'
+
+  post '/add_to_user_wishlist/:user_wishlist_id/:product_id' => 'user_wishlists#add_to_user_wishlist', as: 'add_to_user_wishlist'
  
   root to: "stores#index"
 

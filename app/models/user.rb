@@ -48,20 +48,23 @@ class User < ActiveRecord::Base
   private
 
     def create_wishlists
-      self.wishlists.create(
-        name: "Love It",
-        icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
-        )
+      Wishlist.find_each do |w|
+        w.user_wishlists.create(user: self)
+      end
+      # self.wishlists.create(
+      #   name: "Love It",
+      #   icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
+      #   )
 
-      self.wishlists.create(
-        name: "Hate It",
-        icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
-        )
+      # self.wishlists.create(
+      #   name: "Hate It",
+      #   icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
+      #   )
 
-      self.wishlists.create(
-        name: "Have It",
-        icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
-        )
+      # self.wishlists.create(
+      #   name: "Have It",
+      #   icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
+      #   )
     end
 
 end

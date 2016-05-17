@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   def show
     @store = Store.find(params[:store_id])
     @user = current_user
-    @wishlists = @user.wishlists
+    @user_wishlists = @user.user_wishlists
   end
 
   # GET /products/1/edit

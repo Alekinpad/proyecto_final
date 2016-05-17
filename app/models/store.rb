@@ -14,6 +14,8 @@ class Store < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
   mount_uploader :cover_photo, CoverPhotoUploader
 
+  accepts_nested_attributes_for :metros
+
   def to_s
     self.name
   end

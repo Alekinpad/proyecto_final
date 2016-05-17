@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Icon</th>
+      <th>User</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_wishlists.each do |user_wishlist| %>
+      <tr>
+        <td><%= user_wishlist.wishlist.name %></td>
+        <td><%= user_wishlist.wishlist.icon %></td>
+        <td><%= @user %></td>
+        <td><%= link_to 'Show', [@user, user_wishlist] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

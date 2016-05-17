@@ -8,6 +8,7 @@
       <th>Facebook link</th>
       <th>Instagram link</th>
       <th>User</th>
+      <th>Metros</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= store.facebook_link %></td>
         <td><%= store.instagram_link %></td>
         <td><%= link_to store.user, store.user %></td>
+        <td><%= store.metros %></td>
         <td><%= link_to 'Show', store %></td>
         <td><%= link_to 'Edit', edit_store_path(store) %></td>
         <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>

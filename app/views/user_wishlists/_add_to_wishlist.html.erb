@@ -1,0 +1,11 @@
+<ul>
+	<% @user_wishlists.each do |user_wishlist| %>
+		<li>
+		<% if user_wishlist.products.include? @product %>
+			<%= button_to "remove from #{user_wishlist.wishlist.name}",  remove_from_user_wishlist_path(user_wishlist, @product), method: :delete %>
+		<% else %>
+			<%= button_to "Add to #{user_wishlist.wishlist.name}", add_to_user_wishlist_path(user_wishlist, @product), method: :post %>
+		<% end %>
+		</li>
+	<% end %>
+</ul>

@@ -6,14 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Metro.destroy_all
 Product.destroy_all
 Store.destroy_all
 Wishlist.destroy_all
 User.destroy_all
-Metro.destroy_all
 
 users = []
 stores = []
+
+%w( love\ it hate\ it have\ it).each do |w|
+  Wishlist.create(name: w)
+end
 
 5.times do |u|
   users << User.create!(

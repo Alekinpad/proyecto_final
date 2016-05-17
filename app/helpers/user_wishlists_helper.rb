@@ -1,0 +1,2 @@
+module UserWishlistsHelper
+end

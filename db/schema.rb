@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513225450) do
+ActiveRecord::Schema.define(version: 20160514001432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,10 +61,12 @@ ActiveRecord::Schema.define(version: 20160513225450) do
     t.integer  "product_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "wishlist_id"
   end
 
   add_index "product_wishlists", ["product_id"], name: "index_product_wishlists_on_product_id", using: :btree
   add_index "product_wishlists", ["user_wishlist_id"], name: "index_product_wishlists_on_user_wishlist_id", using: :btree
+  add_index "product_wishlists", ["wishlist_id"], name: "index_product_wishlists_on_wishlist_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -163,6 +165,7 @@ ActiveRecord::Schema.define(version: 20160513225450) do
   add_foreign_key "metro_stores", "stores"
   add_foreign_key "product_wishlists", "products"
   add_foreign_key "product_wishlists", "user_wishlists"
+  add_foreign_key "product_wishlists", "wishlists"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users"
   add_foreign_key "user_wishlists", "users"

@@ -1,7 +1,0 @@
-<ul>
-	<% @wishlists.each do |wishlist| %>
-		<li>
-		<%= button_to "Add to #{wishlist.name}", add_to_wishlist_path(wishlist, @product), method: :post %>
-		</li>
-	<% end %>
-</ul>

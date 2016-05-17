@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @wishlists = @user.wishlists
-    @wishlist = Wishlist.new
+    @user_wishlists = @user.user_wishlists
   end
 end

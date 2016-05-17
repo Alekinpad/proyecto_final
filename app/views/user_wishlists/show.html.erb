@@ -3,12 +3,12 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @wishlist.name %>
+  <%= @user_wishlist.wishlist.name %>
 </p>
 
 <p>
   <strong>Icon:</strong>
-  <%= image_tag @wishlist.icon %>
+  <%= image_tag @user_wishlist.wishlist.icon %>
 </p>
 
 <p>
@@ -16,9 +16,6 @@
   <%= @user %>
 </p>
 
-<%= render partial: "wishlists/product" %>
+<%= render partial: "user_wishlists/product" %>
 
-
-
-<%= link_to 'Edit', edit_user_wishlist_path(@user, @wishlist) %> |
 <%= link_to 'Back', @user %>

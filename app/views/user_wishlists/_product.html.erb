@@ -21,7 +21,7 @@
         <td><%= product.stock %></td>
         <td><%= link_to product.store, product.store %></td>
         <td><%= link_to 'Show', [product.store, product] %></td>
-        <td><%#= link_to 'Sacar de wishlist', user_wishlist_remove_from_wishlist_path(@user, @wishlist, product),  method: :post %></td>
+        <td><%= link_to 'Sacar de wishlist', remove_from_user_wishlist_path(@user_wishlist, product), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

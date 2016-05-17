@@ -22,32 +22,16 @@ class WishlistsController < ApplicationController
   end
 
   def remove_from_wishlist
-    # @product_wishlist = ProductWishlist.find(params[:product_wishlists_id])
-    # @product_wishlist.destroy
+    user_wishlist = UserWishlist.find(params[:user_wishlist_id])
+    product = Product.find(params[:product_id])
+    user_wishlist.products.destroy(product)
   end
 
   # GET /wishlists/1/edit
-  def edit
-    @user = User.find(params[:user_id])
-  end
 
   # POST /wishlists
   # POST /wishlists.json
-  def create
-    @user = User.find(params[:user_id])
 
-    @user.wishlists.build(wishlist_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'Wishlist was successfully created.' }
-        format.json { render :show, status: :created, location: @wishlist }
-      else
-        format.html { render :new }
-        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PATCH/PUT /wishlists/1
   # PATCH/PUT /wishlists/1.json
@@ -61,17 +45,6 @@ class WishlistsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @wishlist.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /wishlists/1
-  # DELETE /wishlists/1.json
-  def destroy
-    @user = User.find(params[:user_id])
-    @wishlist.destroy
-    respond_to do |format|
-      format.html { redirect_to @user, notice: 'Wishlist was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

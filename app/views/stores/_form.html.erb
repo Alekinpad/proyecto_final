@@ -43,6 +43,16 @@
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div>
+  <div class="field">
+    <% @metros.each do |metro| %>
+      <%= check_box_tag :metros, metro %>
+      <%= label_tag metro %>
+    <% end %>
+<!--       <#% f.fields_for :metros do |metro| %>
+        <#%= metro.input :store_ids, as: :check_boxes %>
+      <#% end %> -->
+    <br>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
