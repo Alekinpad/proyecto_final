@@ -37,25 +37,6 @@ ActiveRecord::Schema.define(version: 20160514001432) do
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
-  create_table "metro_stores", force: :cascade do |t|
-    t.integer  "metro_id"
-    t.integer  "store_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "metro_stores", ["metro_id"], name: "index_metro_stores_on_metro_id", using: :btree
-  add_index "metro_stores", ["store_id"], name: "index_metro_stores_on_store_id", using: :btree
-
-  create_table "metros", force: :cascade do |t|
-    t.string   "name"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "line"
-  end
-
   create_table "product_wishlists", force: :cascade do |t|
     t.integer  "user_wishlist_id"
     t.integer  "product_id"
@@ -161,8 +142,6 @@ ActiveRecord::Schema.define(version: 20160514001432) do
 
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
-  add_foreign_key "metro_stores", "metros"
-  add_foreign_key "metro_stores", "stores"
   add_foreign_key "product_wishlists", "products"
   add_foreign_key "product_wishlists", "user_wishlists"
   add_foreign_key "product_wishlists", "wishlists"
