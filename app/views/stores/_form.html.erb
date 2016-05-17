@@ -44,13 +44,46 @@
     <%= f.text_field :user_id %>
   </div>
   <div class="field">
+    <%= f.label "Metros de Encuentro" %><br>
+    <%= f.label "Línea: 1" %><br>
     <% @metros.each do |metro| %>
-      <%= check_box_tag :metros, metro %>
-      <%= label_tag metro %>
+      <% if metro.line.split(", ").include? "1" %>
+        <%= check_box_tag :metros, metro %>
+        <%= label_tag metro %>
+      <% end %>
     <% end %>
-<!--       <#% f.fields_for :metros do |metro| %>
-        <#%= metro.input :store_ids, as: :check_boxes %>
-      <#% end %> -->
+    <br>
+    <%= f.label "Línea: 2" %><br>
+    <% @metros.each do |metro| %>
+      <% if metro.line.split(", ").include? "2" %>
+        <%= check_box_tag :metros, metro %>
+        <%= label_tag metro %>
+      <% end %>
+    <% end %>
+    <br>
+    <%= f.label "Línea: 4" %><br>
+    <% @metros.each do |metro| %>
+      <% if metro.line.split(", ").include? "4" %>
+        <%= check_box_tag :metros, metro %>
+        <%= label_tag metro %>
+      <% end %>
+    <% end %>
+    <br>
+    <%= f.label "Línea: 4a" %><br>
+    <% @metros.each do |metro| %>
+      <% if metro.line.split(", ").include? "4a" %>
+        <%= check_box_tag :metros, metro %>
+        <%= label_tag metro %>
+      <% end %>
+    <% end %>
+    <br>
+    <%= f.label "Línea: 5" %><br>
+    <% @metros.each do |metro| %>
+      <% if metro.line.split(", ").include? "5" %>
+        <%= check_box_tag :metros, metro %>
+        <%= label_tag metro %>
+      <% end %>
+    <% end %>
     <br>
   </div>
   <div class="actions">
