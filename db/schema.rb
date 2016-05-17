@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514001432) do
+ActiveRecord::Schema.define(version: 20160517234613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20160514001432) do
 
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
+  create_table "lines", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_wishlists", force: :cascade do |t|
     t.integer  "user_wishlist_id"
     t.integer  "product_id"
@@ -61,6 +67,34 @@ ActiveRecord::Schema.define(version: 20160514001432) do
   end
 
   add_index "products", ["store_id"], name: "index_products_on_store_id", using: :btree
+
+  create_table "station_lines", force: :cascade do |t|
+    t.integer  "station_id"
+    t.integer  "line_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "station_lines", ["line_id"], name: "index_station_lines_on_line_id", using: :btree
+  add_index "station_lines", ["station_id"], name: "index_station_lines_on_station_id", using: :btree
+
+  create_table "station_stores", force: :cascade do |t|
+    t.integer  "station_id"
+    t.integer  "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "station_stores", ["station_id"], name: "index_station_stores_on_station_id", using: :btree
+  add_index "station_stores", ["store_id"], name: "index_station_stores_on_store_id", using: :btree
+
+  create_table "stations", force: :cascade do |t|
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string   "name"
@@ -146,6 +180,10 @@ ActiveRecord::Schema.define(version: 20160514001432) do
   add_foreign_key "product_wishlists", "user_wishlists"
   add_foreign_key "product_wishlists", "wishlists"
   add_foreign_key "products", "stores"
+  add_foreign_key "station_lines", "lines"
+  add_foreign_key "station_lines", "stations"
+  add_foreign_key "station_stores", "stations"
+  add_foreign_key "station_stores", "stores"
   add_foreign_key "stores", "users"
   add_foreign_key "user_wishlists", "users"
   add_foreign_key "user_wishlists", "wishlists"
