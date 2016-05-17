@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   delete '/remove_from_user_wishlist/:user_wishlist_id/:product_id', to: 'user_wishlists#remove_from_user_wishlist', as: 'remove_from_user_wishlist'
 
-  post '/add_to_user_wishlist/:user_wishlist_id/:product_id' => 'user_wishlists#add_to_user_wishlist', as: 'add_to_user_wishlist'
+  post '/add_to_user_wishlist/:user_wishlist_id/:product_id', to: 'user_wishlists#add_to_user_wishlist', as: 'add_to_user_wishlist'
  
   root to: "stores#index"
 
