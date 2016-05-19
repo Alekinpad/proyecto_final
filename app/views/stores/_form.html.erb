@@ -43,10 +43,12 @@
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div>
-<!--   <#% @lines.each do |line| %>
-    <p><#%= line %></p>
-      <#%= collection_check_boxes :station_ids, line.stations, :id, :name %>
-    <#% end %> -->
+  <div class="field">
+    <% @lines.each do |line| %>
+      <p>Línea <%= line.name %></p>
+      <%= f.collection_check_boxes :station_ids, line.stations, :id, :name %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

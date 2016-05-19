@@ -7,8 +7,8 @@
       <th>Cover photo</th>
       <th>Facebook link</th>
       <th>Instagram link</th>
-      <th>User</th>
       <th>Metros</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +22,13 @@
         <td><%= store.cover_photo %></td>
         <td><%= store.facebook_link %></td>
         <td><%= store.instagram_link %></td>
+        <td>
+          <ul>
+            <% store.stations.each do |station| %>
+              <li><%= station %></li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= link_to store.user, store.user %></td>
         <td><%= link_to 'Show', store %></td>
         <td><%= link_to 'Edit', edit_store_path(store) %></td>

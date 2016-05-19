@@ -29,6 +29,15 @@
 </p>
 
 <p>
+  <strong>Metros:</strong>
+  <ul>
+    <% @store.stations.each do |station| %>
+      <li><%= station %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
   <strong>User:</strong>
   <%= link_to @store.user, @store.user %>
 </p>

@@ -3,4 +3,8 @@ class Station < ActiveRecord::Base
   has_many :stores, through: :station_stores
   has_many :station_lines
   has_many :lines, through: :station_lines
+
+  def to_s
+    name
+  end
 end
