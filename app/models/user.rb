@@ -21,8 +21,11 @@ class User < ActiveRecord::Base
   enum role: [ :other, :logged ]
 
   def self.find_for_facebook_oauth(auth)
+    access_token = auth.credentials.token
+    facebook = Koala::Facebook::API.new(access_token)
+
     user = User.where(provider: auth.provider, uid: auth.uid).first
-    # The User was found in our database
+    
     return user if user
     
     # Check if the User is already registered without Facebook
@@ -51,20 +54,6 @@ class User < ActiveRecord::Base
       Wishlist.find_each do |w|
         w.user_wishlists.create(user: self)
       end
-      # self.wishlists.create(
-      #   name: "Love It",
-      #   icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
-      #   )
-
-      # self.wishlists.create(
-      #   name: "Hate It",
-      #   icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
-      #   )
-
-      # self.wishlists.create(
-      #   name: "Have It",
-      #   icon: "http://careers.iconstrategiesbpo.com/file/2014/08/heart-shape-button-300x300.png"
-      #   )
     end
 
 end
