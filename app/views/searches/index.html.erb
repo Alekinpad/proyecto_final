@@ -1,0 +1,26 @@
+<h1>Searches#index</h1>
+<%= search_form_for @q, url: search_searches_path, html: { method: :post } do |f| %>
+<!-- 	<div class="field">
+		<#%= f.label :user_name_cont %>
+	  	<#%= f.search_field :user_name_cont %>
+	</div> -->
+	<div class="field">
+		<%= f.label :product_tags_cont %>
+	  	<%= f.search_field :product_tags_cont %>
+	</div>
+	<div class="field">
+		<%= f.label :product_price_gteq, "Price between" %>
+	  	<%= f.search_field :product_price_gteq %>
+	  	<%= f.label :product_price_lteq, "and" %>
+	  	<%= f.search_field :product_price_lteq %>
+	</div>
+	<div class="actions">
+		<%= f.submit "search" %>
+	</div>
+
+	<%= content_tag :table do %>
+	  <%= content_tag :th, sort_link(@q, :product_name) %>
+	  <%= content_tag :th, sort_link(@q, :product_description) %>
+	  <%= content_tag :th, sort_link(@q, :product_price) %>
+	<% end %>
+<% end %>

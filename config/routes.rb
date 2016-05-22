@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     resources :user_wishlists
   end
 
+  resources :searches do
+    collection do
+      match 'search', to: 'searches#index', via: :post, as: :search
+    end
+  end
+
   delete '/remove_from_user_wishlist/:user_wishlist_id/:product_id', to: 'user_wishlists#remove_from_user_wishlist', as: 'remove_from_user_wishlist'
 
   post '/add_to_user_wishlist/:user_wishlist_id/:product_id', to: 'user_wishlists#add_to_user_wishlist', as: 'add_to_user_wishlist'
