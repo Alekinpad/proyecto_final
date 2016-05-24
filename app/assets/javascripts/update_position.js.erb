@@ -1,3 +1,18 @@
-$(document).on('ready page:load', function(){}
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(sendPosition);
+	} else {
+		console.log('Error');
+	}
+}
+
+function showPosition(position) {
+	$('.latitude').val(position.coords.latitude);
+	$('.longitude').val(position.coords.longitude);
+
 	$.getScript("/getlocation.js.erb");
+}
+
+$(document).on('ready page:load', function(){}
+	getLocation();
 });
