@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
     @q = Product.ransack(params[:q])
     distance = params[:distance].present? ? params[:distance] : 2
     #@products = @q.result(distinct: true)
-    stations = Station.near([params[:latitude], params[:longitude]], distance, :units => :km)
+    stations = Station.near([current_user.latitude, current_user.longitude], distance, :units => :km)
     @products = []
 
     stations.each do |station|
