@@ -7,8 +7,4 @@ class UsersController < ApplicationController
   def login
     @user = User.koala(request.env['omniauth.auth']['credentials'])
   end
-
-  def self.koala(auth)
-    facebook.get_object("me?fields=name.picture")
-  end
 end

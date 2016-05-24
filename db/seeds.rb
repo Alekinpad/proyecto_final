@@ -31,13 +31,24 @@ Wishlist.create(name: "Have It")
   )
 end
 
+Line.create([{name: "1"}, {name: "2"}, {name: "4"}, {name: "4a"}, {name: "5"}])
+
+CSV.foreach(File.join(Rails.root, 'db', 'data', 'metros.csv'), headers: true, encoding: 'UTF-8') do |row|
+  stations << Station.create(row.to_hash)
+end
+
+CSV.foreach(File.join(Rails.root, 'db', 'data', 'stationLines.csv'), headers: true, encoding: 'UTF-8') do |row|
+  StationLine.create(row.to_hash)
+end
+
 5.times do |s|
   u = users[s]
   stores << Store.create!(
     name: Faker::Company.name,
     description: Faker::Lorem.sentence(5),
     phone_number: Faker::PhoneNumber.cell_phone,
-    user: u
+    user: u,
+    stations: stations.sample(5)
   )
 end
 
@@ -47,16 +58,7 @@ end
     description: Faker::Lorem.sentence(3),
     price: Faker::Number.between(3000, 10000),
     stock: Faker::Number.between(1, 10),
-    store: stores.sample
+    store: stores.sample,
+    tag_list: Faker::Hipster.words(4).map(&:inspect).join(', ')
   )
-end
-
-Line.create([{name: "1"}, {name: "2"}, {name: "4"}, {name: "4a"}, {name: "5"}])
-
-CSV.foreach(File.join(Rails.root, 'db', 'data', 'metros.csv'), headers: true, encoding: 'UTF-8') do |row|
-  stations << Station.create(row.to_hash)
-end
-
-CSV.foreach(File.join(Rails.root, 'db', 'data', 'stationLines.csv'), headers: true, encoding: 'UTF-8') do |row|
-  StationLine.create(row.to_hash)
 end

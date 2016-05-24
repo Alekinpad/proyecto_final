@@ -1,0 +1,17 @@
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition);
+	} else {
+		console.log('Error');
+	}
+}
+
+function showPosition(position) {
+	$('.latitude').val(position.coords.latitude);
+	$('.longitude').val(position.coords.longitude);
+}
+
+
+$(document).on('page:change', function(){
+	getLocation();
+});

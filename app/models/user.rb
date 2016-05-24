@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
 
   enum role: [ :other, :logged ]
 
+  after_validation :reverse_geocode, if: ->(obj){ obj.latitude.present? and obj.latitude_changed? || obj.longitude.present? and obj.longitude_changed?}
+  reverse_geocoded_by :latitude, :longitude
+
   def self.find_for_facebook_oauth(auth)
     access_token = auth.credentials.token
     facebook = Koala::Facebook::API.new(access_token)

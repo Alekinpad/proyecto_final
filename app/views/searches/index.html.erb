@@ -9,19 +9,29 @@
 
 	<div class="actions">
 		<%= f.submit "search" %>
-	</div>
+	</div>	
+<% end %>
 
-	<table id="products">
-	  <tr>
-	    <th><%= sort_link @q, :name, "Product Name" %></th>
-	    <th><%= sort_link @q, :descriotion, "Description" %></th>
-	    <th><%= sort_link @q, :price, "Price" %></th>
-	  </tr>
-	<% @products.each do |product| %>
-	  <tr>
-	    <td><%= product.name %></td>
-	    <td><%= product.description %></td>
-	    <td><%= product.price %></td>
-	  </tr>
-	<% end %>
+<%= form_tag do %>
+	<div class="field">
+		<%= label_tag :distance %>
+		<%= number_field_tag :distance %>
+	</div>
+	<%= hidden_field_tag :latitude, nil, class: "latitude" %>
+	<%= hidden_field_tag :longitude, nil, class: "longitude" %>
+	<%= submit_tag 'Filtar' %>
+<% end %>
+
+<table id="products">
+  <tr>
+    <th><%= sort_link @q, :name, "Product Name" %></th>
+    <th><%= sort_link @q, :descriotion, "Description" %></th>
+    <th><%= sort_link @q, :price, "Price" %></th>
+  </tr>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+  </tr>
 <% end %>
